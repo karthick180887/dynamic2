@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book My Show</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <h1>Book My Show</h1>
+    </nav>
+    <main>
+        <form id="booking-form">
+            <div class="form-group">
+                <label for="shows">Select a show:</label>
+                <select id="shows" name="show_id">
+                    {% for show in shows %}
+                    <option value="{{ show.id }}">{{ show.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div id="show-details">
+                <h2 id="show-title">{{ shows[0].name }}</h2>
+                <p id="show-description">{{ shows[0].description }}</p>
+            </div>
+            <div id="timings-container" class="form-group">
+                <!-- Radio buttons for timings will be dynamically inserted here -->
+            </div>
+            <button type="submit">Book Now</button>
+        </form>
+    </main>
+
+    <script id="shows-data" type="application/json">{{ shows|tojson }}</script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

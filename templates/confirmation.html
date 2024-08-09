@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <h1>Book My Show</h1>
+    </nav>
+    <main>
+        <h2>Booking Confirmation</h2>
+        <p>Thank you for booking!</p>
+        <p>Show: {{ show.name }}</p>
+        <p>Timing: {{ timing }}</p>
+        <a href="{{ url_for('index') }}">Book another show</a>
+    </main>
+</body>
+</html>
